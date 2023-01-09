@@ -3,6 +3,7 @@ package org.utilities;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,10 @@ public class BaseClass {
 	public static void changeBrowserWindowSize(int x, int y) {
 
 		driver.manage().window().setSize(new Dimension(x, y));
+	}
 
+	public static void deleteAllCookies() {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	public static void loadUrl(String url) {
