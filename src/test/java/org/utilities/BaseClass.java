@@ -3,6 +3,7 @@ package org.utilities;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,10 @@ public class BaseClass {
 		}
 	}
 
+	public static void deleteAllCookies() {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
 	public static void loadUrl(String url) {
 
 		driver.get(url);
@@ -45,7 +50,6 @@ public class BaseClass {
 		String propertyValue = p.getProperty(propertyName);
 
 		return propertyValue;
-
 
 	}
 
