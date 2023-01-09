@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,6 +29,12 @@ public class BaseClass {
 		}
 	}
 
+	public static void changeBrowserWindowSize(int x, int y) {
+
+		driver.manage().window().setSize(new Dimension(x, y));
+
+	}
+
 	public static void loadUrl(String url) {
 
 		driver.get(url);
@@ -45,7 +52,6 @@ public class BaseClass {
 		String propertyValue = p.getProperty(propertyName);
 
 		return propertyValue;
-
 
 	}
 
